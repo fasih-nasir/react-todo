@@ -1,0 +1,196 @@
+:root{
+  --color1:#212121;
+  --color2:#0F0F0F;
+--color3:#383838;
+--color4:rgb(163, 163, 163);
+--fontFamily: "Nunito Sans", sans-serif;
+}
+body{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.container-fluid{
+  font-family: var(--fontFamily);
+  background-color:var(--color2);
+  height: 100vh;
+}
+.box{
+  padding: 20px 30px;
+  background-color: var(--color1);
+}
+input{
+  color:var(--color4);
+  padding: 10px;
+  border: none;
+
+  /* text-align: center; */
+  font-weight: bold;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
+  margin: 5px 0px;
+  background-color: var(--color3);
+transition: 0.5s ease;
+}
+select{
+  color:var(--color4);
+  padding: 10px;
+  border: none;
+
+  /* text-align: center; */
+  font-weight: bold;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
+  margin: 5px 0px;
+  background-color: var(--color3);
+transition: 0.5s ease;
+}
+input:focus{
+  color: white;
+  background-color: var(--color2);
+  /* border: 4px solid var(--color1) !important; */
+}
+select:focus{
+  color: white;
+  background-color: var(--color2);
+  /* border: 4px solid var(--color1) !important; */
+}
+.box>h1{
+  color: var(--color4);
+  margin: 10px 0px;
+  font-size: 28px;
+  font-weight: bolder;
+  text-transform: uppercase ;
+}
+.box>form>div>div>button{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
+
+  color: white;
+  border: none;
+  outline: none;
+  padding: 5px;
+margin: 10px 0px;
+color: rgb(163, 163, 163);
+font-weight: 500;
+font-family: var(--fontFamily);
+border-radius: 20px;  
+cursor: grabbing;
+border: none;
+box-sizing: border-box;
+transition: 0.5s ease-in-out;
+  background-color: var(--color2);
+}
+.box>form>div>div>button:hover{
+  background-color: var(--color3);
+transform: scale(1.1);
+color: var(--color4);
+font-weight: bolder;
+}
+.hr{
+  border-bottom: 2px solid var(--color3);
+}
+.spannot{
+  font-weight: 700;
+  font-size: 13px;
+  padding: 0px 5px;
+  color: var(--color4);
+}
+.box{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px !important;
+border-radius: 15px;
+}
+.googe{
+  border: none;
+  color: var(--color4);
+ cursor: grabbing !important;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--color4);
+  background-color: transparent;
+  transition: 0.5s ease-in-out;
+}
+.googe:hover{
+  transform: scale(1.1);
+  background-color: var(--color2);
+}
+.fa-user{
+  padding:10px 20px;
+  border-radius: 40px;
+  /* border: 1px solid var(--color4); */
+  color: var(--color4);
+background-color: var(--color1);
+}
+.btncan{
+  top: 5px;
+  /* position: fixed; */
+  right:  10px !important;
+}
+.offcanvas{
+  background-color: var(--color1);
+}
+.signbtn{
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  cursor: grab !important;
+  background-color: var(--color2);
+transition: 0.5s ease-in-out;
+  border: 1px solid var(--color2);
+
+}
+.signbtn:hover{
+  transform: scale(1.1);
+  font-weight: bolder;
+  border: 1px solid var(--color2);
+  background-color: transparent;
+}
+#closebtn{
+  color: white !important;
+  position: absolute;
+  right: 10px;
+  top: 23px;
+  border-radius: 40px !important;
+  border: none;
+  background-color: var(--color1);
+}
+#closebtn>i{
+  font-size: 28px;
+  font-weight: bolder;
+  color: var(--color4);
+
+  border-radius: 40px !important;
+  /* background-color: !important; */
+}
+.div1{
+  left: 0px;
+  width: 100%;
+  position: fixed;
+  margin: 0px;
+  padding: 5px;
+  border-radius: 5px;
+border: 8px solid var(--color2);
+  color: var(--color4);
+  background-color: var(--color3);
+}
+.offcanvas-body{
+ text-transform: capitalize;
+  color: var(--color4);
+}
+.offcanvas-body>div>h4{
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--color4);
+}
+#offcanvasRightLabel>h4{
+  color: var(--color4);
+  margin-top: 2px;
+  background-color: var(--color3);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 21px;
+}
