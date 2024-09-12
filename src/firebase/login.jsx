@@ -37,7 +37,7 @@ function loginwithemail(e){
       // ...
     })
     .catch((error) => {
-        console.log(error);
+    alert(error)
         
       const errorCode = error.code;
       const errorMessage = error.message;
