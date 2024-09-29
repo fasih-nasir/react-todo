@@ -4,6 +4,8 @@ import { Link ,useNavigate } from 'react-router-dom';
 // FIREBASE AUTH
 import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged , GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 // FIRBASE FIRESOTRE
+import { getStorage,getDownloadURL,uploadBytesResumable, ref, uploadBytes } from "firebase/storage";
+
 import { getFirestore, collection, addDoc , doc, setDoc } from "firebase/firestore";
 // IMPORT CONFIG
 import { auth,db } from './config';
@@ -14,6 +16,9 @@ var navigate=useNavigate()
 // Use Navigate
 
   // State
+  const [image, setImage] = useState(null);
+
+
   var [email, setEmail] = useState("");
   var [pass, setPass] = useState("");
   var [name, setName] = useState("");
@@ -33,7 +38,31 @@ var navigate=useNavigate()
   // FORM SUBMIT
   function createAcc(e) {
     e.preventDefault();
+  // img
+  
+  const storage = getStorage();
+  const storageRef = ref(storage, `images/${image.name}`);
+  
+  const uploadTask = uploadBytesResumable(storageRef, image);
+  
+ 
+  uploadTask.on('state_changed', 
+    (snapshot) => {
+   
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+     
+    }, 
+    (error) => {
+      console.log(error);
+      
+    }, 
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        console.log('File available at', downloadURL);
 
+   
+  // img
     createUserWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
         // Signed up 
@@ -46,9 +75,9 @@ var navigate=useNavigate()
     ageD:age,
     dobD:dob,
     professionD:profession,
-    country: nation
-
-
+    country: nation,
+profileimg:downloadURL
+});
   });
   setName("");
   setEmail("");
@@ -62,8 +91,11 @@ var navigate=useNavigate()
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-   alert(errorMessage);
+      alert(errorMessage);
       });
+
+    }
+  ); 
   }
 
   // FORM SUBMIT
@@ -166,7 +198,9 @@ var navigate=useNavigate()
   </select>
 </div>
 
-                         
+                       <div>
+<input type="file" onChange={(e)=>{setImage(e.target.files[0])}} />
+</div>  
 
         
           <div className="col-12 d-flex justify-content-center ">
@@ -174,7 +208,7 @@ var navigate=useNavigate()
           </div>
           <div className="col-12 d-flex flex-column justify-content-center align-items-center">
           <span className="col-7 hr mb-3"></span>
-          <div><span className="spannot">Already Register</span>  <Link to="/">Login <i className="fas fa-external-link-alt mx-2"></i></Link></div>
+          <div><span className="spannot">Already Register</span>  <Link to="/login">Login <i className="fas fa-external-link-alt mx-2"></i></Link></div>
           </div>
        
         </div>
