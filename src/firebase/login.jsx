@@ -29,7 +29,7 @@ function loginwithemail(e){
     signInWithEmailAndPassword(auth, email, pass)
     .then((userCredential) => {
       // Signed in 
-      navigate("/Todo")
+      navigate("/")
       const user = userCredential.user;
     //   console.log(user);
       
@@ -37,10 +37,11 @@ function loginwithemail(e){
       // ...
     })
     .catch((error) => {
-    alert(error)
+        // console.log(error);
         
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert(error)
     });
 }
     return(
